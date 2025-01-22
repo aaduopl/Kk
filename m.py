@@ -242,7 +242,7 @@ def handle_aadi1(message):
 
 
     else:
-        response = "ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀᴜᴛʜᴏʀɪᴢᴇᴅ 🤬"
+        response = "ABHI FREE SEVA BAND HA THORA WAIT KARO \nhttps://t.me/user_x_dead 🤬"
 
 
     bot.reply_to(message, response)
