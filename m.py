@@ -11,10 +11,6 @@ bot = telebot.TeleBot('7799225662:AAFYX1oLc7AEYq1tzHDdmUb4omfgYoNnxqM')
 # Admin user IDs
 admin_id = {"1302320722", "", ""}
 
-cooldown_dict = {}
-start_attack_reply = {}
-valid_ip_prefixes = ('52.', '20.', '14.', '4.', '13.', '100.', '235.', '91')
-
 USER_FILE = "users.txt"
 LOG_FILE = "log.txt"
 
