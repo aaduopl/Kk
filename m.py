@@ -200,7 +200,7 @@ def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
     
-    response =f"https://t.me/c/2386031607/14664\n💀 ⚠️𝐀𝐓𝐓𝐀𝐂𝐊 𝐑𝐔𝐍𝐍𝐈𝐍𝐆❗💀\n🎯𝐈𝐏:{target} \n⛱️️𝙋𝙤𝙧𝙩:{port} \n⌚𝐓𝐢ᴍᴇ:{time}\n JOIN OUR CHANNEL 👇🏻\n᚛ https://t.me/+KWXSknpfd4w2NmJl ᚜"
+    response =f"💀⚠️𝐀𝐓𝐓𝐀𝐂𝐊 𝐑𝐔𝐍𝐍𝐈𝐍𝐆❗💀\n🎯𝐈𝐏:{target} \n⛱️️𝙋𝙤𝙧𝙩:{port} \n⌚𝐓𝐢ᴍᴇ:{time}\n JOIN OUR CHANNEL 👇🏻\n᚛ https://t.me/+KWXSknpfd4w2NmJl ᚜"
     bot.reply_to(message, response)
 
 # Dictionary to store the last time each user ran the /aadi command
