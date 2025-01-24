@@ -228,8 +228,8 @@ def handle_aadi(message):
             target = command[1]
             port = int(command[2])  # Convert port to integer
             time = int(command[3])  # Convert time to integer
-            if time > 201:
-                response = "ᴇʀʀᴏʀ: ᴍᴀx ᴀᴛᴛᴀᴄᴋ sᴇᴄᴏɴᴅ 200sᴇᴄ ❌."
+            if time > 61:
+                response = "ᴇʀʀᴏʀ: ᴍᴀx ᴀᴛᴛᴀᴄᴋ sᴇᴄᴏɴᴅ 60sᴇᴄ ❌. /𝐧𝐁𝐔𝐘 𝐏𝐀𝐈𝐃 𝐃𝐃𝐎𝐒 𝐍𝐎𝐖 200𝐒𝐄𝐂 @user_x_dead"
             else:
                 record_command_logs(user_id, '/aadi', target, port, time)
                 log_command(user_id, target, port, time)
