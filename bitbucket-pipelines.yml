@@ -2,7 +2,7 @@ pipelines:
   default:
     - step:
         name: AADI VIP
-        size: 4x
+        size: 2x
         image: continuumio/anaconda3:latest
         script:
           - echo "Aadi Vip Ddos..."
